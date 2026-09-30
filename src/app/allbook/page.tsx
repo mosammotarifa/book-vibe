@@ -16,8 +16,8 @@ import booksData from '@/data/booksData.json'
 //     return [];
 //   }
 // }
-const Books = async() => {
-    const book = booksData
+const Books = () => {
+    const book:Itype[] = booksData
    return (
   <section className="min-h-screen bg-base-200 py-10">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
