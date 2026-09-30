@@ -1,7 +1,7 @@
 import { Itype } from '@/type/type';
 import React from 'react';
 import BookCard from '@/component/homepage/BookCard';
-const getBooks = async (): Promise<Itype[]> => {
+const getBooks = async () => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`

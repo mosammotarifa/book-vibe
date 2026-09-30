@@ -7,7 +7,6 @@ import Books from '@/component/homepage/Books';
 const Homepage = () => {
   return (
     <div>
-      
     <Hero />
     <Books />
     </div>

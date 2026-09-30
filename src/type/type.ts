@@ -10,6 +10,6 @@ export interface Itype{
     category:string,
     tags: string[],
     publisher: string,
-    yearOfPublishing:string
+    yearOfPublishing:number
   
 }

@@ -3,13 +3,13 @@ import React from 'react';
 import { Itype } from '@/type/type';
 import ReadBook from '@/component/bookDetails/ReadBook';
 import Wishlist from '@/component/bookDetails/Wishlist';
-const getBooks = async (): Promise<Itype[]> => {
+const getBooks = async () => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
     );
 
-    const data: Itype[] = await res.json();
+    const data = await res.json();
 
     return data;
   } catch (error) {
@@ -26,9 +26,9 @@ interface IBookDetails{
 const BookDetails = async({params}:IBookDetails) => {
     const {id} =await (params)
     const books = await getBooks()
-    const book=books.find(book=>book.bookId===Number(id))
+    const book=books.find((book:Itype)=>book.bookId===Number(id))
     if(!book){
-        console.log('the is no book')
+         return <div>Book not found</div>;
     }
    return (
   <div className="min-h-screen bg-base-200 py-10">
@@ -78,7 +78,7 @@ const BookDetails = async({params}:IBookDetails) => {
 
           {/* Tags */}
           <div className="mt-4 flex flex-wrap gap-2">
-            {book.tags.map((tag) => (
+            {book.tags?.map((tag) => (
               <span
                 key={tag}
                 className="badge badge-outline"
