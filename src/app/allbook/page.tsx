@@ -1,22 +1,23 @@
 import { Itype } from '@/type/type';
 import React from 'react';
 import BookCard from '@/component/homepage/BookCard';
-const getBooks = async () => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
-    );
+import booksData from '@/data/booksData.json'
+// const getBooks = async () => {
+//   try {
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
+//     );
 
-    const data: Itype[] = await res.json();
+//     const data: Itype[] = await res.json();
 
-    return data;
-  } catch (error) {
-    console.error("Error fetching books data", error);
-    return [];
-  }
-}
+//     return data;
+//   } catch (error) {
+//     console.error("Error fetching books data", error);
+//     return [];
+//   }
+// }
 const Books = async() => {
-    const book = await getBooks()
+    const book = booksData
    return (
   <section className="min-h-screen bg-base-200 py-10">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

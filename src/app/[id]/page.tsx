@@ -3,20 +3,21 @@ import React from 'react';
 import { Itype } from '@/type/type';
 import ReadBook from '@/component/bookDetails/ReadBook';
 import Wishlist from '@/component/bookDetails/Wishlist';
-const getBooks = async () => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
-    );
+import booksData from '@/data/booksData.json'
+// const getBooks = async () => {
+//   try {
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
+//     );
 
-    const data = await res.json();
+//     const data = await res.json();
 
-    return data;
-  } catch (error) {
-    console.error("Error fetching books data", error);
-    return [];
-  }
-};
+//     return data;
+//   } catch (error) {
+//     console.error("Error fetching books data", error);
+//     return [];
+//   }
+// };
 interface IBookDetails{
     params:{
         id:string
@@ -25,7 +26,7 @@ interface IBookDetails{
 
 const BookDetails = async({params}:IBookDetails) => {
     const {id} =await (params)
-    const books = await getBooks()
+    const books:Itype[] = booksData 
     const book=books.find((book:Itype)=>book.bookId===Number(id))
     if(!book){
          return <div>Book not found</div>;

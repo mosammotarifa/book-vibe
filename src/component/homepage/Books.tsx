@@ -1,22 +1,24 @@
 import { Itype } from '@/type/type';
 import React from 'react';
 import BookCard from './BookCard';
-const getBooks = async (): Promise<Itype[]> => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
-    );
+import booksData from '@/data/booksData.json'
 
-    const data: Itype[] = await res.json();
+// const getBooks = async ()=> {
+//   try {
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
+//     );
 
-    return data;
-  } catch (error) {
-    console.error("Error fetching books data", error);
-    return [];
-  }
-};
-const Books = async() => {
-    const book = await getBooks()
+//     const data = await res.json();
+
+//     return data;
+//   } catch (error) {
+//     console.error("Error fetching books data", error);
+//     return [];
+//   }
+// };
+const Books = () => {
+    const book:Itype[] = booksData;
    return (
   <section className="min-h-screen bg-base-200 py-10">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -34,7 +36,7 @@ const Books = async() => {
 
       {/* Books Grid */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {book .slice(0,6).map((book) => (
+        {book .slice(0,6).map((book:Itype) => (
           <BookCard
             key={book.bookId}
             book={book}
