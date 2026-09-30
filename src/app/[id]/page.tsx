@@ -78,7 +78,7 @@ const BookDetails = async({params}:IBookDetails) => {
 
           {/* Tags */}
           <div className="mt-4 flex flex-wrap gap-2">
-            {book.tags?.map((tag) => (
+            {book.tags?.map((tag:string) => (
               <span
                 key={tag}
                 className="badge badge-outline"

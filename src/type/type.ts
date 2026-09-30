@@ -6,7 +6,7 @@ export interface Itype{
     image: string,
     review: string,
     totalPages: number,
-    rating:string,
+    rating:number,
     category:string,
     tags: string[],
     publisher: string,

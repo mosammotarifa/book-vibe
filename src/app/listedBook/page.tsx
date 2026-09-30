@@ -17,7 +17,7 @@ const ListedBook = () => {
     if (sortBy === "rating") {
       sortedBooks.sort((a, b) => b.rating - a.rating);
     } else if (sortBy === "pages") {
-      sortedBooks.sort((a, b) => b.pages - a.pages);
+      sortedBooks.sort((a, b) => b.totalPages - a.totalPages);
     } else if (sortBy === "year") {
       sortedBooks.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
     }

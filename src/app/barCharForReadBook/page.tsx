@@ -49,7 +49,7 @@ const CustomColorLabel = (props: LabelProps) => {
 const ForReadBook = () => {
     const {readBook}=useContext(BookContext)
     const data =
-    readBook.map((read :Itype ,index:number)=>{
+    readBook.map((read :Itype, index:number)=>{
 
      return{  
     name: read.bookName,
